@@ -247,7 +247,7 @@ function LibretaDirecciones() {
                             {adicionales.map((d) => (
                                 <div key={String(d._id)} className="mb-3">
                                     <MiniDireccion
-                                        dir={d} // sin title => sin ⭐ y con dropdown
+                                        dir={d}
                                         setDirFacturacion={onSetDirFacturacion}
                                         setDirPrincipal={onSetDirPrincipal}
                                         onEliminarDireccion={(x) => setDirAEliminar(x)}

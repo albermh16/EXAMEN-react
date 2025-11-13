@@ -268,8 +268,8 @@ function ModalDirecciones({ onDireccionSaved }) {
                                         <label htmlFor="municipio" className="form-label">Ciudad o Municipio<em> *</em></label>
                                         <select className="form-select" id="municipio" value={municipioSeleccionado} onChange={handleChangeMunicipio} disabled={!provinciaSeleccionada}>
                                             <option value="">Selecciona un municipio</option>
-                                            {municipios.map(m => (
-                                                <option key={`${m.CPRO}-${m.CMUM}`} value={m.CMUM}>{m.DMUN50}</option>
+                                            {municipios.map(mun => (
+                                                <option key={`${mun.CPRO}-${mun.CMUM}`} value={mun.CMUM}>{mun.DMUN50}</option>
                                             ))}
                                         </select>
                                     </div>

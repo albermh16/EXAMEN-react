@@ -1,6 +1,5 @@
 import './MiniDireccion.css';
-import useGlobalState from '../../../../../globalState/stateGlobal';
-import { useEffect } from 'react';
+
 
 function MiniDireccion({ dir, title, setDirPrincipal, setDirFacturacion, onEliminarDireccion }) {
 
