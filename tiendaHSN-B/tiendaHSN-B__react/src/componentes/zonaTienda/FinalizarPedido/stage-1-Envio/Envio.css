@@ -1,0 +1,10 @@
+.eco-message {
+    font-size: 14px;
+    margin-left: 10px;
+    font-style: italic;
+    color: #00b22d;
+}
+
+div.form-check {
+    border: none;
+}

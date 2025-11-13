@@ -1,0 +1,22 @@
+{
+  "name": "tiendahsn-b__nodejs",
+  "version": "1.0.0",
+  "description": "proyecto nodejs con express para tienda HSN para crear servicio REST-API",
+  "license": "ISC",
+  "author": "pablo neo matrix",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.18.3",
+    "multer": "^2.0.2"
+  }
+}

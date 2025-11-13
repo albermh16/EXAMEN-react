@@ -1,0 +1,10 @@
+.subtotal {
+    font-weight: 800;
+    color: #999;
+}
+
+.total {
+    color: #333;
+    font-size: 2em;
+    font-weight: 900;
+}

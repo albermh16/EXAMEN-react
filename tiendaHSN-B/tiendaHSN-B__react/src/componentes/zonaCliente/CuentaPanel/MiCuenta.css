@@ -1,0 +1,10 @@
+a.list-group-item-action {
+    color: #666;
+    font-weight: 500;
+}
+
+a.list-group-item:hover {
+    color: #ff6000;
+    font-weight: 500;
+    background-color: #ccc;
+}

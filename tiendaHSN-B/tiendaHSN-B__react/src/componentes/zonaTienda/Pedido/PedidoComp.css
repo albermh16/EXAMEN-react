@@ -1,0 +1,19 @@
+button.btn-hs1 {
+   background-color: #00b22d;
+    color: #fff;
+    font-size: 1.6em;
+    border: 1px solid #00b22d;
+    font-family: "unineue", "Open Sans", sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    box-shadow: 0 5px 0 0 #2c942f;
+    transition: all .3s ease-out;
+    padding-top: 10px; 
+}
+button.btn-hs1:hover { 
+    opacity: .8;
+    background-color: #00b22d;
+    border: 1px solid #00b22d;
+    color: #fff;
+
+}

@@ -1,0 +1,83 @@
+.title {
+    font-size: 1.75em;
+    text-transform: uppercase;
+    font-family: "unineue", "Open Sans", sans-serif;
+    color: #000;
+    font-weight: 600;
+    font-style: italic;
+}
+
+#onestepcheckout-steps-val {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 10px;
+    width: 100%;
+}
+
+.onestepcheckout-step {
+    border-bottom: 2px solid #f1f1f1;
+}
+
+.steps-val-container {
+    display: flex;
+    align-items: center;
+}
+
+.step-check.checked {
+    background: #00b22dbf;
+    color: white;
+    border: 1px solid #00b22dbf;
+}
+
+.step-check.active {
+    background: white;
+    color: #ff6000;
+    border: 1px solid #ff6000;
+}
+
+.step-check {
+    width: 25px;
+    height: 25px;
+    background: #ccccccbf;
+    color: #666666bf;
+    font-size: 12px;
+    border-radius: 25px;
+    border: 1px solid #ccccccbf;
+    text-align: center;
+    line-height: 25px;
+}
+
+.step-title.checked {
+    color: #00b22dbf;
+    cursor: pointer;
+}
+
+.step-title.active {
+    color: #ff6000;
+}
+
+.step-title {
+    margin-left: 10px;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-family: 'unineue', 'Open Sans', sans-serif;
+    color: #666666bf;
+}
+.separator {
+    border-bottom: 1px solid #666;
+    flex: 0 0 4%;
+    margin: 0;
+    height: 0;
+}
+
+span.active {
+    opacity: 1;
+    color: #00b22d;
+    font-size: 1.6em;
+    transition: all 200ms;
+    display: inline-block;
+    padding-left: 5px;
+    animation: continueSwing 800ms linear infinite alternate;
+    cursor: pointer;
+}

@@ -1,0 +1,47 @@
+/* Usamos principalmente las clases de Bootstrap. Aquí solo estilos personalizados
+	 para pequeños detalles que Bootstrap no cubre por defecto. */
+label.form-check-label {
+    cursor: pointer;
+    width: 100%;
+    display: block;
+    position: relative;
+    margin: 0;
+    user-select: none;
+    font-weight: 600;
+    font-size: 14px;
+    color: #999;
+    padding: 5px 15px 5px 30px;
+}
+
+
+input.form-check-input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    display: none;
+}
+span.checkmark {
+    position: absolute;
+    top: 6px;
+    left: 5px;
+    height: 18px;
+    width: 18px;
+    background-color: #ccc;
+    border-radius: 50%;
+}
+input[type="radio"]:checked ~ .checkmark {
+    background-color: #00b22d; 
+}
+
+.btn-hsn-1 {
+    background-color: #00b22d;
+    color: #fff;
+    font-size: 1.16em;
+    border: 1px solid #00b22d;
+    font-family: "unineue", "Open Sans", sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    box-shadow: 0 5px 0 0 #2c942f;
+    padding-top: 10px;
+    transition: all .3s ease-out;
+}

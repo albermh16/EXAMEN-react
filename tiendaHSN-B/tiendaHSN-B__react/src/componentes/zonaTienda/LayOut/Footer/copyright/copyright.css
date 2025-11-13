@@ -1,0 +1,154 @@
+/* =========================
+   Footer - Base
+   ========================= */
+.footer-copyright {
+  background: #333333;
+  color: #ffffff;
+  padding-block: 1.75rem;
+  font-size: 0.95rem;
+}
+
+.footer-tall {
+  padding-block: 2.25rem;
+}
+
+/* =========================
+   Logo
+   ========================= */
+img.footer-logo {
+  height: 72px;
+  width: auto;
+  display: inline-block;
+}
+.footer-tall img.footer-logo {
+  height: 96px;
+}
+
+.foot-logo {
+  padding-left: 0.25rem;
+}
+
+/* =========================
+   Copy / Text
+   ========================= */
+.foot-copy {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  font-size: 0.92rem;
+}
+
+/* =========================
+   Social icons
+   ========================= */
+.foot-icons {
+  padding-right: 0.25rem;
+}
+
+.foot-icons .social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: #ffffff;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.08);
+  transition: background 0.2s ease, transform 0.15s ease, color 0.2s ease;
+}
+
+.foot-icons .social-link:hover,
+.foot-icons .social-link:focus {
+  background: rgba(255, 255, 255, 0.16);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.foot-icons .bi {
+  font-size: 1.05rem;
+}
+
+/* =========================
+   Health register
+   ========================= */
+.footer_health_register .center {
+  font-size: 0.92rem;
+}
+
+.footer_health_register .left,
+.footer_health_register .right {
+  white-space: nowrap;
+}
+
+/* =========================
+   Responsive tweaks
+   ========================= */
+@media (max-width: 575.98px) {
+  img.footer-logo {
+    height: 56px;
+  }
+  .footer-tall img.footer-logo {
+    height: 72px;
+  }
+}
+
+@media (min-width: 992px) {
+  .footer-copyright {
+    padding-block: 2.25rem;
+  }
+  .footer-tall {
+    padding-block: 2.75rem;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .footer_copyright_container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .foot-logo,
+  .foot-copy {
+    text-align: center !important;
+  }
+  .foot-logo {
+    order: 1;
+  }
+  .foot-copy {
+    order: 2;
+  }
+  .foot-icons {
+    order: 3;
+    justify-content: center !important;
+    margin-top: 0.5rem;
+  }
+  .footer_health_register .col-12 {
+    text-align: center !important;
+    margin: 0.15rem 0;
+  }
+}
+@media (max-width: 991.98px) {
+  .footer_copyright_container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .foot-logo,
+  .foot-copy {
+    text-align: center !important;
+  }
+  .foot-logo {
+    order: 1;
+  }
+  .foot-copy {
+    order: 2;
+  }
+  .foot-icons {
+    order: 3;
+    justify-content: center !important;
+    margin-top: 0.5rem;
+  }
+
+  .footer_health_register .col-12 {
+    text-align: center !important;
+    margin: 0.15rem 0;
+  }
+}

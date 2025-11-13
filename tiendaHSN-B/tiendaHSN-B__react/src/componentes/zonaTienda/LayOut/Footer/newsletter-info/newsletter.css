@@ -1,0 +1,124 @@
+/* =========================
+   Footer - Newsletter
+   ========================= */
+.footer-newsletter {
+  background: #d6d6d6;
+  color: #333333;
+}
+
+.newsletter-box {
+  background: transparent;
+}
+
+.newsletter-title {
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: 0.5px;
+  color: #333333;
+  font-size: 1.5rem;
+}
+
+.newsletter-subtitle {
+  color: #333333;
+}
+
+.newsletter-input {
+  border-radius: 0.5rem;
+}
+
+.newsletter-btn {
+  background: #f35e07;
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+}
+.newsletter-btn:hover,
+.newsletter-btn:focus {
+  background: #e45706;
+  color: #ffffff;
+}
+
+.quality-heading {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* =========================
+   Footer links columns
+   ========================= */
+.footer-links-box {
+  color: #333333;
+}
+
+.footer-links-box .heading {
+  font-weight: 800;
+  font-style: italic;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.footer-links-box ul li a {
+  color: #333333;
+  text-decoration: none;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+.footer-links-box ul li a:hover {
+  text-decoration: underline;
+}
+
+.border-left-dashed {
+  border-left: 2px dashed rgba(0, 0, 0, 0.15);
+  padding-left: 0.75rem;
+}
+
+.border-dashed {
+  border: 2px dashed rgba(0, 0, 0, 0.15);
+}
+
+.btn-footer {
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+/* Vertical dotted separators around the newsletter center column */
+.v-sep-left {
+  border-left: 2px dotted rgba(0, 0, 0, 0.25);
+}
+.v-sep-right {
+  border-right: 2px dotted rgba(0, 0, 0, 0.25);
+}
+
+/* Top separator between rows */
+.row-sep-top {
+  border-top: 2px dotted rgba(0, 0, 0, 0.25);
+  padding-top: 1rem;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 991.98px) {
+  .newsletter-box {
+    text-align: center;
+  }
+  .border-left-dashed {
+    border-left: none;
+    padding-left: 0;
+  }
+  .v-sep-left,
+  .v-sep-right {
+    border: none;
+  }
+}
+
+/* Even spacing for bottom link columns on large screens */
+@media (min-width: 992px) {
+  .footer-links-row > [class*="col-lg-"] {
+    display: flex;
+  }
+  .footer-links-row .footer-links-box {
+    width: 100%;
+  }
+}

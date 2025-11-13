@@ -1,0 +1,43 @@
+span.catsppales {
+        color: #333;
+        font-weight: bold;
+        font-size: .7em;
+        text-transform: uppercase;
+        font-family: "unineue", "Open Sans", sans-serif;
+        cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.menucontainer {
+
+        column-count: 4;
+        column-gap: 15px;
+}
+
+.first-lvl {
+        width: 100%;
+        display: inline-block;
+        margin: 0 0 10px 0;
+        font: bold 0.6em "Roboto", "Open Sans", sans-serif;
+
+}
+
+.second-lvl {
+        font: normal 0.5em "Roboto", "Open Sans", sans-serif;
+        color:#999;
+}
+
+div.heading2 {        
+        margin: 0 0 15px 0;
+        padding: 15px 0 10px 0;
+        color: #666;
+        font-size: 16px;
+        text-decoration: none;
+        font-weight: 300;
+        background: url(https://www.hsnstore.com/skin/frontend/default/hsnreborn/images/bg-menu-line.png) repeat-x left bottom;
+    
+}

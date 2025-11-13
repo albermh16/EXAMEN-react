@@ -1,0 +1,77 @@
+/* =========================
+   Footer - Partners (Payments, Shipping, Security)
+   ========================= */
+.footer-partners {
+  background: #ffffff;
+  color: #000000;
+}
+
+.footer_bottom_title {
+  font-weight: 800;
+  font-style: italic;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+  text-align: center;
+}
+
+.footer_payment_list img,
+.footer_shipping_list img,
+.footer_security_list img {
+  height: 26px;
+  width: auto;
+  display: block;
+}
+
+.footer_payment_list,
+.footer_shipping_list,
+.footer_security_list {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 0.75rem;
+}
+
+.footer_payment_methods,
+.footer_shipping_methods,
+.footer_web_security {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer_payment_list li,
+.footer_shipping_list li,
+.footer_security_list li {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Space handling for tight rows */
+.payment-icon-item,
+.shipping-icon-item {
+  margin-right: 0.25rem;
+}
+
+/* Responsive tweaks */
+@media (max-width: 991.98px) {
+  .footer-partners {
+    text-align: center;
+  }
+  .footer_payment_list,
+  .footer_shipping_list,
+  .footer_security_list {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1200px) {
+  .footer_payment_list img,
+  .footer_shipping_list img,
+  .footer_security_list img {
+    height: 28px;
+  }
+}

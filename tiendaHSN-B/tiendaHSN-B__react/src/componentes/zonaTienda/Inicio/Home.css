@@ -1,0 +1,45 @@
+h1 {
+    font: bold italic 28px "unineue", "Open Sans", sans-serif;
+    color: #e26c0a;
+    text-transform: uppercase;
+}
+
+h2 {
+    font: bold italic 20px "unineue", "Open Sans", sans-serif;
+    color: #333;
+    text-align: left;
+    margin: 0 0 15px 0;
+    padding: 15px 0 0 0;
+    line-height: 1.1em;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+}
+
+p {
+    color: #666;
+    font-size: 14px;
+}
+
+strong {
+    color: #666;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+ul {
+    display: block;
+    list-style-type: none;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    padding-inline-start: 40px;
+    unicode-bidi: isolate;
+}
+
+li {
+    border-bottom: 1px dotted #ccc;
+    list-style-type: none;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    display: inherit;  
+}
+

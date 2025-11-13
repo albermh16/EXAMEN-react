@@ -1,0 +1,29 @@
+span.bubbles {
+    width: auto;
+    padding: 4px 5px;
+    border-radius: 5px;
+    text-align: center;
+    box-sizing: border-box;
+    display: flex;
+    background-color: black;
+    color: white;
+
+    font-size: .8em;
+    font-family: "unineue", "Open Sans", sans-serif;
+    text-transform: uppercase;
+    flex-direction: row;
+    align-items: center;
+}
+
+span.discount-percentage {
+    font-weight: bold;
+    font-family: "unineue", "Open Sans", sans-serif;
+    font-size: 1.1em;
+    height: 1.5em;
+    padding: 0 5px;
+    background: #e2001a;
+    color: #fff;
+    line-height: 1.4em;
+    border-radius: 3px;
+    margin-left: 6px;
+}
