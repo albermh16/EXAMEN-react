@@ -14,6 +14,7 @@ function LibretaDirecciones() {
     const [loading, setLoading] = useState(true);
     const [msg, setMsg] = useState(null);
     const [dirAEliminar, setDirAEliminar] = useState(null);
+    const [editar, setEditar] = useState(null);
 
     useEffect(() => {
         const fetchDireccionesCliente = async () => {
@@ -175,6 +176,7 @@ function LibretaDirecciones() {
 
             await recargarDirecciones();
             setMsg({ type: 'ok', text: result.message || 'Dirección guardada correctamente.' });
+            setEditar(null);
             closeModalById('modalDirecciones');
 
         } else {
@@ -221,7 +223,8 @@ function LibretaDirecciones() {
                                 title="Dirección de facturación predeterminada"
                                 setDirFacturacion={onSetDirFacturacion}
                                 setDirPrincipal={onSetDirPrincipal}
-                                onEliminarDireccion={(d) => setDirAEliminar(d)}
+                                onEliminarDireccion={(dir) => setDirAEliminar(dir)}
+                                onModificar={(dir) => setEditar(dir)}
                             />
                         </div>
                     )}
@@ -233,7 +236,8 @@ function LibretaDirecciones() {
                                 title="Dirección de envío predeterminada"
                                 setDirFacturacion={onSetDirFacturacion}
                                 setDirPrincipal={onSetDirPrincipal}
-                                onEliminarDireccion={(d) => setDirAEliminar(d)}
+                                onEliminarDireccion={(dir) => setDirAEliminar(dir)}
+                                onModificar={(dir) => setEditar(dir)}
                             />
                         </div>
                     )}
@@ -250,7 +254,8 @@ function LibretaDirecciones() {
                                         dir={d}
                                         setDirFacturacion={onSetDirFacturacion}
                                         setDirPrincipal={onSetDirPrincipal}
-                                        onEliminarDireccion={(x) => setDirAEliminar(x)}
+                                        onEliminarDireccion={(dir) => setDirAEliminar(dir)}
+                                        onModificar={(dir) => setEditar(dir)}
                                     />
                                 </div>
                             ))}
@@ -269,6 +274,7 @@ function LibretaDirecciones() {
                         className="btn btn-hsn-1"
                         data-bs-toggle="modal"
                         data-bs-target="#modalDirecciones"
+                        onClick={() => setEditar(null)}
                     >
                         <i className="fa-solid fa-plus" /> AÑADIR DIRECCION
                     </button>
@@ -317,7 +323,13 @@ function LibretaDirecciones() {
                 </div>
             </div>
 
-            <ModalDirecciones onDireccionSaved={onDireccionSaved} />
+            <ModalDirecciones 
+                onDireccionSaved={onDireccionSaved}
+                modo={editar ? 'EDITAR' : 'NUEVA'}
+                direccion={editar}
+                onCloseEditar={() => setEditar(null)}
+                
+                />
         </div>
     );
 }

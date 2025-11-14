@@ -1,7 +1,7 @@
 import './MiniDireccion.css';
 
 
-function MiniDireccion({ dir, title, setDirPrincipal, setDirFacturacion, onEliminarDireccion }) {
+function MiniDireccion({ dir, title, setDirPrincipal, setDirFacturacion, onEliminarDireccion, onModificar }) {
 
     const contacto = dir.datosContacto;
     const municip = dir.municipio;
@@ -13,8 +13,8 @@ function MiniDireccion({ dir, title, setDirPrincipal, setDirFacturacion, onElimi
     const showActions = isDefault;
 
     const usarAmbas = () => {
-        setDirPrincipal?.(dir);
-        setDirFacturacion?.(dir);
+        setDirPrincipal(dir);
+        setDirFacturacion(dir);
     };
 
 
@@ -34,24 +34,30 @@ function MiniDireccion({ dir, title, setDirPrincipal, setDirFacturacion, onElimi
                     <p className='card-text'>{contacto.nombre}, {contacto.apellidos}</p>
                     {showDropdown && (
                         <>
-                        {/* ------- este desplegable solo se muestra si la direccion NO ES NI la predeterminada de envio NI LA de facturacion ------- */}
-                        <button className='btn  btn-dropdown dropdown-toggle btn-sm' type='button' data-bs-toggle='dropdown' aria-expanded='false'>
-                            <img src='/images/3puntos-dropdown.svg' alt='dropdown' style={{ width: '4px', height: '17px' }} />
-                        </button>
-                        <ul className='dropdown-menu'>
-                            <li><button className='dropdown-item' onClick={usarAmbas}>Usar como direccion de facturacion y envio por defecto</button></li>
-                            <li><button className='dropdown-item' onClick={() => setDirPrincipal(dir)}>Usar como mi direccion de envio por defecto</button></li>
-                            <li><button className='dropdown-item' onClick={() => setDirFacturacion(dir)}>Usar como mi direccion de facturacion por defecto</button></li>
-                            <li><button className='dropdown-item' >Modificar datos</button></li>
-                            <li><button
-                                className='dropdown-item'
-                                data-bs-toggle='modal'
-                                data-bs-target='#modalConfirmDelete'
-                                onClick={() => onEliminarDireccion?.(dir)}
-                            >
-                                Borrar la dirección
-                            </button></li>
-                        </ul>
+                            {/* ------- este desplegable solo se muestra si la direccion NO ES NI la predeterminada de envio NI LA de facturacion ------- */}
+                            <button className='btn  btn-dropdown dropdown-toggle btn-sm' type='button' data-bs-toggle='dropdown' aria-expanded='false'>
+                                <img src='/images/3puntos-dropdown.svg' alt='dropdown' style={{ width: '4px', height: '17px' }} />
+                            </button>
+                            <ul className='dropdown-menu'>
+                                <li><button className='dropdown-item' onClick={usarAmbas}>Usar como direccion de facturacion y envio por defecto</button></li>
+                                <li><button className='dropdown-item' onClick={() => setDirPrincipal(dir)}>Usar como mi direccion de envio por defecto</button></li>
+                                <li><button className='dropdown-item' onClick={() => setDirFacturacion(dir)}>Usar como mi direccion de facturacion por defecto</button></li>
+                                <li><button className='dropdown-item'
+                                    data-bs-toggle='modal'
+                                    data-bs-target='#modalDirecciones'
+                                    onClick={() => onModificar(dir)}
+                                >
+                                    Modificar datos
+                                </button></li>
+                                <li><button
+                                    className='dropdown-item'
+                                    data-bs-toggle='modal'
+                                    data-bs-target='#modalConfirmDelete'
+                                    onClick={() => onEliminarDireccion(dir)}
+                                >
+                                    Borrar la dirección
+                                </button></li>
+                            </ul>
                         </>
                     )}
                     {/* ---------------------------------------- fin desplegable  ----------------------------------------------------------------*/}
@@ -63,19 +69,26 @@ function MiniDireccion({ dir, title, setDirPrincipal, setDirFacturacion, onElimi
 
                 {showActions && (
                     <>
-                {/* ----------------------estos botones solo se muestran si la direccion es la predeterminada de envio y de facturacion -----------*/}
-                <div className='d-flex justify-content-end gap-2'>
-                    <button className='btn btn-hsn-2 btn-sm'>Modificar</button>
-                    <button
-                        className='btn btn-hsn-2 btn-sm'
-                        data-bs-toggle='modal'
-                        data-bs-target='#modalConfirmDelete'
-                        onClick={() => onEliminarDireccion?.(dir)}
-                    >
-                        Eliminar
-                    </button>
-                </div>
-                </>
+                        {/* ----------------------estos botones solo se muestran si la direccion es la predeterminada de envio y de facturacion -----------*/}
+                        <div className='d-flex justify-content-end gap-2'>
+                            <button
+                                className='btn btn-hsn-2 btn-sm'
+                                data-bs-toggle='modal'
+                                data-bs-target='#modalDirecciones'
+                                onClick={() => onModificar(dir)}
+                            >
+                                Modificar
+                            </button>
+                            <button
+                                className='btn btn-hsn-2 btn-sm'
+                                data-bs-toggle='modal'
+                                data-bs-target='#modalConfirmDelete'
+                                onClick={() => onEliminarDireccion(dir)}
+                            >
+                                Eliminar
+                            </button>
+                        </div>
+                    </>
                 )}
                 {/* -------------------------------------------------------------------------------------------------------------------------------*/}
             </div>

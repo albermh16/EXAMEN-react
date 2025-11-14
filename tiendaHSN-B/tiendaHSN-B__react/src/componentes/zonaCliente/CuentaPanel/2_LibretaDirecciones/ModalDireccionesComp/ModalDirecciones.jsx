@@ -1,8 +1,8 @@
 import './ModalDirecciones.css';
 import useGlobalState from '../../../../../globalState/stateGlobal';
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo} from 'react';
 
-function ModalDirecciones({ onDireccionSaved }) {
+function ModalDirecciones({ onDireccionSaved, modo, direccion = null, onCloseEditar }) {
 
     const accessToken = useGlobalState(state => state.accessToken);
     const setAccessToken = useGlobalState(state => state.setAccessToken);
@@ -114,6 +114,28 @@ function ModalDirecciones({ onDireccionSaved }) {
         fetchMunicipios();
     }, [provinciaSeleccionada]);
 
+
+    useEffect(() => {
+        if (modo === 'EDITAR' && direccion) {
+            setFormulario({
+                nombre: direccion.datosContacto.nombre,
+                apellidos: direccion.datosContacto.apellidos,
+                empresa: direccion.datosContacto.empresa,
+                telefono: direccion.datosContacto.telefono,
+                direccion: direccion.calle,
+                cp: direccion.cp,
+                pais: direccion.pais,
+                esFacturacion: !!direccion.esFacturacion,
+                esPrincipal: !!direccion.esPrincipal
+            });
+            const cpro = direccion.provincia.CPRO;
+            const cmum = direccion.municipio.CMUM;
+            setProvinciaSeleccionada(cpro);
+            setMunicipioSeleccionado(cmum);
+        }
+    }, [modo, direccion]);
+
+
     async function guardarDireccion() {
 
         const provObj = provincias.find(prov => String(prov.CPRO) === String(provinciaSeleccionada));
@@ -123,8 +145,7 @@ function ModalDirecciones({ onDireccionSaved }) {
                 && String(mun.CMUM) === String(municipioSeleccionado);
         });
 
-        const direccion = {
-            _id: undefined,
+        const direccionEnviar = {
             calle: formulario.direccion,
             cp: formulario.cp,
             pais: formulario.pais,
@@ -140,6 +161,9 @@ function ModalDirecciones({ onDireccionSaved }) {
             }
         };
 
+        const operacion = modo === 'EDITAR' ? 'UPDATE' : 'ADD';
+        const idDireccion = modo === 'EDITAR' && direccionEnviar ? direccion._id : undefined;
+
 
         setEnviando(true);
 
@@ -152,8 +176,9 @@ function ModalDirecciones({ onDireccionSaved }) {
                     'X-REFRESH-TOKEN': refreshToken
                 },
                 body: JSON.stringify({
-                    operacion: 'ADD',
-                    direccion
+                    operacion,
+                    direccion: direccionEnviar,
+                    ...(idDireccion ? { idDireccion } : {})
                 })
             });
 
@@ -164,7 +189,10 @@ function ModalDirecciones({ onDireccionSaved }) {
 
             if (respuesta.ok && datos.codigo === 0) {
 
-                onDireccionSaved({ ok: true, message: 'Dirección guardada correctamente' });
+                onDireccionSaved({
+                    ok: true,
+                    message: (modo === 'EDITAR' ? 'Dirección actualizada correctamente' : 'Dirección añadida correctamente'), direccion: datos.direccion
+                });
 
                 setFormulario({
                     nombre: "",
@@ -182,19 +210,33 @@ function ModalDirecciones({ onDireccionSaved }) {
 
                 setProvinciaSeleccionada("");
                 setMunicipioSeleccionado("");
+
+                if (modo === 'EDITAR' && onCloseEditar) {
+                    onCloseEditar();
+                }
+
             } else {
-                onDireccionSaved({ ok: false, message: datos.mensaje || 'Error guardando la dirección' });
+                onDireccionSaved({ 
+                    ok: false, 
+                    message: datos.message || (modo === 'EDITAR' ? 'Error actualizando la dirección' : 'Error añadiendo la dirección') 
+                });
             }
 
             setEnviando(false);
 
         } catch (error) {
             console.error("Error guardando dirección:", error);
-            onDireccionSaved({ ok: false, message: 'Error guardando la dirección' });
-        } 
+            onDireccionSaved({ 
+                ok: false, 
+                message: (modo === 'EDITAR' ? 'Error actualizando la dirección' : 'Error añadiendo la dirección') 
+             });
+            setEnviando(false);
+        }
 
     }
 
+    const textoBoton = modo === 'EDITAR' ? 'GUARDAR CAMBIOS' : 'AÑADIR DIRECCION';
+    const tituloModal = modo === 'EDITAR' ? 'Editar la Direccion' : 'Alta de nueva Direccion';
 
 
     return (
@@ -202,7 +244,7 @@ function ModalDirecciones({ onDireccionSaved }) {
             <div className="modal-dialog modal-dialog-centered modal-lg">
                 <div className="modal-content">
                     <div className='modal-header'>
-                        <h2 className='modal-title fs-5' id='modalDireccionesLabel'>Alta de nueva Direccion/Editar la Direccion</h2>
+                        <h2 className='modal-title fs-5' id='modalDireccionesLabel'>{tituloModal}</h2>
                         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div className='modal-body'>
@@ -342,7 +384,7 @@ function ModalDirecciones({ onDireccionSaved }) {
                                         onClick={guardarDireccion}
                                         disabled={!formularioValido || enviando}
                                     >
-                                        <i className="fa-solid fa-check"></i> {enviando ? 'GUARDANDO...' : 'GUARDAR CAMBIOS'}
+                                        <i className="fa-solid fa-check"></i> {enviando ? 'Guardando...' : textoBoton}
                                     </button>
                                 </div>
                             </div>
