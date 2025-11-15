@@ -63,7 +63,7 @@ function MiniDireccion({ dir, title, setDirPrincipal, setDirFacturacion, onElimi
                     {/* ---------------------------------------- fin desplegable  ----------------------------------------------------------------*/}
                 </div>
                 <p className='card-text'>{dir.calle}</p>
-                <p className='card-text'> {dir.cp} {municip.DMUN50}{municip.DMUN50 && provincia.PRO ? ', ' : ''}{provincia.PRO} {cp}</p>
+                <p className='card-text'> {dir.cp} {municip.DMUN50}{municip.DMUN50 && provincia.PRO ? ', ' : ''}{provincia.PRO}</p>
                 <p className='card-text'>{dir.pais}</p>
                 <p className='card-text'>Telefono: {contacto.telefono}</p>
 

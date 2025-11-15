@@ -67,6 +67,8 @@ function LibretaDirecciones() {
 
     }
 
+    //Funcion para establecer una direccion como predeterminada de envio
+
     async function onSetDirPrincipal(direccion) {
 
         try {
@@ -94,6 +96,8 @@ function LibretaDirecciones() {
         }
     }
 
+    //Funcion para establecer una direccion de facturacion
+
     async function onSetDirFacturacion(direccion) {
 
         try {
@@ -120,6 +124,8 @@ function LibretaDirecciones() {
             console.error('Error al establecer la direccion como de facturacion:', error);
         }
     }
+
+    //Funcion para eliminar una direccion
 
     async function onEliminarDireccion(direccion) {
 
