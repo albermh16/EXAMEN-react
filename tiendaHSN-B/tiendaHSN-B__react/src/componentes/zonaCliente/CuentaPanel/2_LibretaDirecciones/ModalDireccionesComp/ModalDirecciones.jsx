@@ -8,8 +8,6 @@ function ModalDirecciones({ onDireccionSaved, modo, direccion = null, onCloseEdi
     const setAccessToken = useGlobalState(state => state.setAccessToken);
     const refreshToken = useGlobalState(state => state.refreshToken);
 
-    const VITE_GEO_API = import.meta.env.VITE_GEO_API;
-
     const [provincias, setProvincias] = useState([]);
     const [municipios, setMunicipios] = useState([]);
     const [provinciaSeleccionada, setProvinciaSeleccionada] = useState("");
@@ -83,7 +81,7 @@ function ModalDirecciones({ onDireccionSaved, modo, direccion = null, onCloseEdi
     useEffect(() => {
         async function fetchProvincias() {
             try {
-                const response = await fetch(`https://apiv1.geoapi.es/provincias?key=${VITE_GEO_API}&type=JSON`);
+                const response = await fetch('http://localhost:3000/api/geo?type=provincias');
 
                 if (!response.ok) throw new Error("Error al cargar provincias");
 
@@ -100,7 +98,7 @@ function ModalDirecciones({ onDireccionSaved, modo, direccion = null, onCloseEdi
     useEffect(() => {
         async function fetchMunicipios() {
             try {
-                const response = await fetch(`https://apiv1.geoapi.es/municipios?CPRO=${provinciaSeleccionada}&key=${VITE_GEO_API}&type=JSON`);
+                const response = await fetch(`http://localhost:3000/api/geo?type=municipios&CPRO=${provinciaSeleccionada}`);
 
                 if (!response.ok) throw new Error("Error al cargar municipios");
 

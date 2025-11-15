@@ -47,5 +47,6 @@ module.exports=(serverExpress)=>{
 
     serverExpress.use('/api/Cliente', require('./config_enrutamiento/endpointsCliente') ); // <---- importamos el objeto Router q exporta el modulo endpointsCliente.js y lo pasamos al metodo .use() del servidor express
     serverExpress.use('/api/Tienda', require('./config_enrutamiento/endpointsTienda') ); // <---- importamos el objeto Router q exporta el modulo endpointsCliente.js y lo pasamos al metodo .use() del servidor express
+    serverExpress.use('/api/geo', require('../servicios/geo_api') ); // <---- importamos el objeto Router q exporta el modulo geo_api.js y lo pasamos al metodo .use() del servidor express
     //#endregion
     }

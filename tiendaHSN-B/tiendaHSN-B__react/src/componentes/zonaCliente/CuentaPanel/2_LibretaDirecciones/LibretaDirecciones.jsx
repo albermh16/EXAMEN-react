@@ -46,7 +46,7 @@ function LibretaDirecciones() {
 
 
     async function recargarDirecciones() {
-        //funcion para recargar las direcciones del cliente desde el backend y actualizar el state global
+
         try {
             let respuesta = await fetch(`http://localhost:3000/api/Cliente/Direcciones`, {
                 method: 'GET',
@@ -68,7 +68,7 @@ function LibretaDirecciones() {
     }
 
     async function onSetDirPrincipal(direccion) {
-        //funcion para establecer una direccion como principal (de envio o de facturacion)
+
         try {
             let respuesta = await fetch(`http://localhost:3000/api/Cliente/Direccion`, {
                 method: 'POST',
@@ -95,7 +95,7 @@ function LibretaDirecciones() {
     }
 
     async function onSetDirFacturacion(direccion) {
-        //funcion para establecer una direccion como de facturacion
+
         try {
             let respuesta = await fetch(`http://localhost:3000/api/Cliente/Direccion`, {
                 method: 'POST',
@@ -122,7 +122,7 @@ function LibretaDirecciones() {
     }
 
     async function onEliminarDireccion(direccion) {
-        //funcion para eliminar una direccion
+
         try {
             let respuesta = await fetch(`http://localhost:3000/api/Cliente/Direccion`, {
                 method: 'POST',
@@ -171,7 +171,7 @@ function LibretaDirecciones() {
     }
 
     async function onDireccionSaved(result) {
-        
+
         if (result.ok) {
 
             await recargarDirecciones();
@@ -182,16 +182,16 @@ function LibretaDirecciones() {
         } else {
 
             setMsg({ type: 'error', text: result?.message || 'No se pudo guardar la dirección.' });
-            
+
         }
     }
 
     const lista = cliente.direcciones || [];
-    const envioDefault = lista.find(d => d.esPrincipal);
-    const factDefault = lista.find(d => d.esFacturacion);
-    const adicionales = lista.filter(d =>
-        (!envioDefault || String(d._id) !== String(envioDefault._id)) &&
-        (!factDefault || String(d._id) !== String(factDefault._id))
+    const envioDefault = lista.find(dir => dir.esPrincipal);
+    const factDefault = lista.find(dir => dir.esFacturacion);
+    const adicionales = lista.filter(dir =>
+        (!envioDefault || String(dir._id) !== String(envioDefault._id)) &&
+        (!factDefault || String(dir._id) !== String(factDefault._id))
     );
     const noHay = lista.length === 0;
 
@@ -323,13 +323,13 @@ function LibretaDirecciones() {
                 </div>
             </div>
 
-            <ModalDirecciones 
+            <ModalDirecciones
                 onDireccionSaved={onDireccionSaved}
                 modo={editar ? 'EDITAR' : 'NUEVA'}
                 direccion={editar}
                 onCloseEditar={() => setEditar(null)}
-                
-                />
+
+            />
         </div>
     );
 }
